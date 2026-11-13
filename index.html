@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Emilly Dias — Engenharia de Software</title>
+<meta name="description" content="Portfólio de Emilly Dias, estudante de Engenharia de Software na UNIPAMPA: IA aplicada, back-end, dados e arquitetura de software.">
+<meta property="og:title" content="Emilly Dias — Engenharia de Software">
+<meta property="og:description" content="IA aplicada, back-end, dados e arquitetura de software.">
+<meta property="og:image" content="https://lilydias24.github.io/assets/buffet.webp">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7fc;
+    --surface: #ffffff;
+    --surface-2: #f1eefa;
+    --text: #1c1830;
+    --muted: #5b5672;
+    --border: #e4e0f0;
+    --accent: #5b21b6;
+    --accent-2: #2563eb;
+    --accent-soft: #ede9fe;
+    --shadow: 0 1px 2px rgb(28 24 48 / 6%), 0 8px 24px rgb(28 24 48 / 6%);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d0b16;
+      --surface: #16131f;
+      --surface-2: #1e1a2b;
+      --text: #ece9f6;
+      --muted: #a39dba;
+      --border: #2b2640;
+      --accent: #a78bfa;
+      --accent-2: #60a5fa;
+      --accent-soft: #241d3a;
+      --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 8px 24px rgb(0 0 0 / 25%);
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font: 16px/1.6 "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+
+  /* Navegação */
+  nav { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .brand { font-weight: 700; text-decoration: none; color: var(--text); }
+  nav ul { display: flex; gap: 20px; list-style: none; margin: 0; padding: 0; }
+  nav ul a { color: var(--muted); text-decoration: none; font-size: 14px; font-weight: 500; }
+  nav ul a:hover { color: var(--text); }
+  @media (max-width: 560px) { nav ul { gap: 14px; } nav ul li.hide-sm { display: none; } }
+
+  /* Apresentação */
+  header.hero { padding: 72px 0 48px; }
+  .eyebrow { font: 500 13px/1 "JetBrains Mono", monospace; color: var(--accent); letter-spacing: .04em; margin: 0 0 16px; }
+  h1 { font-size: clamp(34px, 6vw, 52px); line-height: 1.1; letter-spacing: -.02em; margin: 0 0 20px; }
+  h1 span { background: linear-gradient(90deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .lead { font-size: 18px; color: var(--muted); max-width: 680px; margin: 0 0 28px; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--border); color: var(--text); background: var(--surface); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+  @media (prefers-color-scheme: dark) { .btn.primary { color: #120e1f; } }
+  .btn svg { width: 18px; height: 18px; }
+
+  section { padding: 40px 0; }
+  h2 { font-size: 26px; letter-spacing: -.01em; margin: 0 0 6px; }
+  .section-sub { color: var(--muted); margin: 0 0 28px; }
+
+  /* Destaque do TCC */
+  .tcc { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 28px; box-shadow: var(--shadow); position: relative; overflow: hidden; }
+  .tcc::before { content: ""; position: absolute; inset: 0 auto 0 0; width: 4px; background: linear-gradient(var(--accent), var(--accent-2)); }
+  .badge { display: inline-block; font: 500 12px/1 "JetBrains Mono", monospace; padding: 6px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); margin-bottom: 14px; }
+  .tcc h2 { font-size: 22px; margin: 0 0 10px; }
+  .tcc p { margin: 0 0 16px; color: var(--muted); max-width: 760px; }
+  .pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; margin: 20px 0 0; }
+  .pillar { background: var(--surface-2); border-radius: 12px; padding: 16px; }
+  .pillar b { display: block; margin-bottom: 4px; }
+  .pillar span { color: var(--muted); font-size: 14px; }
+
+  /* Projetos */
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+  @media (max-width: 380px) { .grid { grid-template-columns: 1fr; } }
+  .card { display: flex; flex-direction: column; background: var(--surface); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease; }
+  .card:hover { transform: translateY(-2px); border-color: var(--accent); }
+  .thumb { aspect-ratio: 16 / 9; background: var(--surface-2); border-bottom: 1px solid var(--border); overflow: hidden; }
+  .thumb img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; }
+  .thumb.contain img { object-fit: contain; background: #fff; }
+  .thumb.text { display: grid; place-items: center; background: linear-gradient(135deg, #1e1b4b, #4c1d95 55%, #2563eb); color: #fff; font: 500 15px/1.6 "JetBrains Mono", monospace; text-align: center; padding: 16px; }
+  .body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+  .area { font: 500 12px/1 "JetBrains Mono", monospace; color: var(--accent); text-transform: uppercase; letter-spacing: .06em; }
+  .card h3 { margin: 0; font-size: 19px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .mine { font-size: 14px; background: var(--surface-2); border-radius: 10px; padding: 10px 12px; }
+  .mine b { color: var(--text); }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 6px; }
+  .tags li { list-style: none; font-size: 12px; font-weight: 500; padding: 4px 9px; border-radius: 6px; background: var(--accent-soft); color: var(--accent); }
+  .tags { margin-bottom: 0; padding-left: 0; }
+  .links { display: flex; gap: 16px; font-size: 14px; font-weight: 600; }
+  .links a { text-decoration: none; }
+  .links a:hover { text-decoration: underline; }
+
+  /* Mais projetos */
+  .more { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 12px; }
+  .more a { display: block; text-decoration: none; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; }
+  .more a:hover { border-color: var(--accent); }
+  .more b { display: block; font-size: 15px; }
+  .more span { color: var(--muted); font-size: 14px; }
+
+  /* Habilidades */
+  .skills { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; }
+  .skill { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px; }
+  .skill h3 { font-size: 15px; margin: 0 0 8px; }
+  .skill p { margin: 0; color: var(--muted); font-size: 14px; }
+
+  footer { border-top: 1px solid var(--border); margin-top: 32px; padding: 32px 0 48px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 16px; justify-content: space-between; align-items: center; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a class="brand" href="#top">Emilly Dias</a>
+    <ul>
+      <li><a href="#tcc">TCC</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li class="hide-sm"><a href="#habilidades">Habilidades</a></li>
+      <li><a href="#contato">Contato</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <p class="eyebrow">Engenharia de Software · UNIPAMPA</p>
+    <h1>Emilly Dias<br><span>IA aplicada e arquitetura de software</span></h1>
+    <p class="lead">Estudante de Engenharia de Software na UNIPAMPA, Campus Alegrete. Construo sistemas que unem IA aplicada, back-end e análise de dados, com atenção a decisões de arquitetura, testes e privacidade.</p>
+    <div class="cta">
+      <a class="btn primary" href="#projetos">Ver projetos</a>
+      <a class="btn" href="https://github.com/lilydias24">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.83 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+        GitHub
+      </a>
+      <a class="btn" href="https://www.linkedin.com/in/emilly-dias-87864922b">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<section id="tcc">
+  <div class="wrap">
+    <div class="tcc">
+      <span class="badge">TCC · em desenvolvimento</span>
+      <h2>Tutor Inteligente para Dedução Natural</h2>
+      <p>Ferramentas de lógica já dizem se um passo de prova está certo. Este tutor explica, em linguagem natural, <strong>por que</strong> uma regra falhou naquele contexto e sugere o próximo passo, para estudantes que travam na estratégia de prova.</p>
+      <div class="pillars">
+        <div class="pillar"><b>Arquitetura com veto</b><span>O LLM propõe explicações e dicas; um motor simbólico verifica cada passo e nada chega ao estudante sem a aprovação dele.</span></div>
+        <div class="pillar"><b>Privacidade por desenho</b><span>Os dados da pesquisa usam pseudônimos e só registram quem consentiu, por construção do sistema (LGPD).</span></div>
+        <div class="pillar"><b>Método</b><span>Design Science Research, revisão sistemática com 65 estudos, decisões registradas em ADRs e avaliação com uma turma real.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <h2>Projetos em destaque</h2>
+    <p class="section-sub">Trabalhos da graduação e do técnico, com o que foi a minha parte em cada um.</p>
+    <div class="grid">
+
+      <article class="card">
+        <div class="thumb"><img src="assets/briefing.webp" alt="E-mail de briefing gerado pelo template HTML do projeto" loading="lazy"></div>
+        <div class="body">
+          <span class="area">IA aplicada</span>
+          <h3>Briefing Agent</h3>
+          <p>Agente que gera briefings de notícias personalizados com LLM. O usuário configura tudo conversando com um bot no Discord e recebe o resumo diário por Discord e e-mail.</p>
+          <p class="mine"><b>Minha parte:</b> suíte de testes dos modelos, do agente de configuração e da coleta de notícias; e-mail em HTML.</p>
+          <ul class="tags"><li>Python</li><li>Agno</li><li>Groq</li><li>Discord</li><li>pytest</li><li>GitHub Actions</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/briefing-agent">Repositório →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"><img src="assets/rp3-api.webp" alt="Documentação interativa da API FastAPI com rotas de produtos, épicos e histórias" loading="lazy"></div>
+        <div class="body">
+          <span class="area">Back-end</span>
+          <h3>Resolução de Problemas III</h3>
+          <p>Quatro sistemas com paradigmas diferentes: programação funcional, regras lógicas no estilo Prolog e uma API para histórias de usuário com LLMs e programação orientada a aspectos.</p>
+          <p class="mine"><b>Minha parte:</b> autora de 146 dos 323 commits; back-end da API do Problema 4 e integração entre as branches do grupo.</p>
+          <ul class="tags"><li>FastAPI</li><li>SQLAlchemy</li><li>Alembic</li><li>AOP</li><li>React</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/rp3-resolucao-de-problemas">Repositório →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"><img src="assets/buffet.webp" alt="Dashboard com indicadores de desperdício de alimentos e filtros" loading="lazy"></div>
+        <div class="body">
+          <span class="area">Ciência de dados</span>
+          <h3>Desperdício de alimentos em buffets</h3>
+          <p>Investigação de em que condições o desperdício é maior: pipeline bronze/silver/gold, testes estatísticos das hipóteses e dashboard interativo.</p>
+          <p class="mine"><b>Minha parte:</b> o dashboard em Streamlit (componentes, serviços e interface) e os scripts de apresentação.</p>
+          <ul class="tags"><li>pandas</li><li>SciPy</li><li>Plotly</li><li>Streamlit</li><li>Docker</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/desperdicio-alimentos-buffet">Repositório →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb"><img src="assets/ams.webp" alt="Histórico de acessos de alunos com status calculado pelo cronograma" loading="lazy"></div>
+        <div class="body">
+          <span class="area">Primeiro sistema completo</span>
+          <h3>Monitoramento de acesso ao campus</h3>
+          <p>Registro de entrada e saída de alunos pelo QR Code da carteirinha, comparado com o cronograma da turma, com perfis de administrador e operador e relatório em PDF.</p>
+          <p class="mine"><b>TCC do Técnico em Informática</b> (IFFar, 2023).</p>
+          <ul class="tags"><li>PHP</li><li>MySQL</li><li>Bootstrap</li><li>QR Code</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/AMS_INFO31">Repositório →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb contain"><img src="assets/esseg.webp" alt="Diagrama da arquitetura segura do sistema hospitalar analisado" loading="lazy"></div>
+        <div class="body">
+          <span class="area">Segurança</span>
+          <h3>Análise de segurança de um sistema hospitalar</h3>
+          <p>Análise incremental com STRIDE, riscos tratados pelo NIST CSF 2.0, arquitetura segura, código seguro e regras de detecção de intrusão.</p>
+          <p class="mine"><b>Minha parte:</b> trilha de Spoofing do início ao fim, liderança das etapas de modelagem STRIDE e de detecção, e senhas com scrypt e testes.</p>
+          <ul class="tags"><li>STRIDE</li><li>NIST CSF</li><li>OWASP</li><li>Python</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/Trab_ESseg">Repositório →</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb text">MCP · MQTT · HTTP/SSE<br>clima · umidade · irrigação</div>
+        <div class="body">
+          <span class="area">Redes e IA</span>
+          <h3>Fazenda inteligente com MCP</h3>
+          <p>Assistente de IA que orquestra vários servidores MCP para responder ao produtor rural, evoluído depois para protocolos de rede reais (MQTT e HTTP/SSE).</p>
+          <ul class="tags"><li>Python</li><li>MCP</li><li>MQTT</li><li>SQLite</li></ul>
+          <div class="links"><a href="https://github.com/lilydias24/AtivInterativa_Redes">Repositório →</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<section id="mais">
+  <div class="wrap">
+    <h2>Mais projetos</h2>
+    <p class="section-sub">Outros trabalhos que mostram a base técnica.</p>
+    <div class="more">
+      <a href="https://github.com/lilydias24/sadae-microsservicos"><b>SADAE em microsserviços</b><span>Atendimento, tickets e relatórios num sistema de água e esgoto · React + TypeScript, FastAPI</span></a>
+      <a href="https://github.com/lilydias24/Trabalhos_SO"><b>Simuladores de Sistemas Operacionais</b><span>Escalonamento FIFO/SJF, paginação e interrupções de E/S · Python</span></a>
+      <a href="https://github.com/lilydias24/RP_Testes"><b>Testes de software</b><span>Selenium dirigido por dados e JUnit parametrizado e de integração</span></a>
+      <a href="https://github.com/lilydias24/Redes"><b>API em servidor remoto</b><span>FastAPI em Docker consumida por um cliente pela rede</span></a>
+      <a href="https://github.com/lilydias24/EstruturaDados"><b>Estruturas de dados</b><span>Listas, pilhas, filas, hash e árvore binária do zero · Java</span></a>
+      <a href="https://github.com/lilydias24/AlgoritmosProg_ES"><b>Algoritmos e POO</b><span>Exercícios, interfaces Swing e um jogo de tabuleiro · Java</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="habilidades">
+  <div class="wrap">
+    <h2>Habilidades</h2>
+    <p class="section-sub">O que aparece nos projetos acima.</p>
+    <div class="skills">
+      <div class="skill"><h3>IA aplicada</h3><p>Agentes com LLM, integração com APIs de modelos, IA explicável com validação formal.</p></div>
+      <div class="skill"><h3>Back-end</h3><p>Python, FastAPI, SQLAlchemy, PostgreSQL, MySQL, PHP, microsserviços.</p></div>
+      <div class="skill"><h3>Dados</h3><p>pandas, testes estatísticos, pipelines em camadas, dashboards em Streamlit.</p></div>
+      <div class="skill"><h3>Qualidade e segurança</h3><p>pytest, JUnit, Selenium, CI no GitHub Actions, STRIDE, OWASP, NIST CSF.</p></div>
+      <div class="skill"><h3>Arquitetura e processo</h3><p>ADRs, modelagem de domínio, requisitos e histórias de usuário, Docker.</p></div>
+      <div class="skill"><h3>Front-end</h3><p>React, TypeScript, Tailwind, Bootstrap.</p></div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <span>Emilly Dias · Alegrete, RS</span>
+    <span><a href="https://github.com/lilydias24">GitHub</a> · <a href="https://www.linkedin.com/in/emilly-dias-87864922b">LinkedIn</a></span>
+  </div>
+</footer>
+
+</body>
+</html>
