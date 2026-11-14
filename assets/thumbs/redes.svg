@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#500724"/>
+      <stop offset=".55" stop-color="#9D174D"/>
+      <stop offset="1" stop-color="#DB2777"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#g)"/>
+  <g font-family="Consolas, 'Courier New', monospace" fill="#ffffff" text-anchor="middle">
+    <text x="400" y="210" font-size="40" font-weight="700">MCP · MQTT · HTTP/SSE</text>
+    <text x="400" y="262" font-size="26" fill="#FBCFE8">clima · umidade do solo · irrigação</text>
+  </g>
+</svg>
